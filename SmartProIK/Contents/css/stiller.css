@@ -1,0 +1,11 @@
+﻿@media (max-width:767px) {
+    .mj_mapmarker {
+        margin-top: 313px;
+    }
+}
+
+@media (min-width:768px) {
+    .mj_mapmarker {
+        margin-top: 158px;
+    }
+}
