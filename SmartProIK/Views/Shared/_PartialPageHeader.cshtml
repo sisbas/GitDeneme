@@ -140,13 +140,13 @@
                             </div>
                         </li>
                         <li>
-                            <a href="signup.html"><i class="fa fa-lock"></i> Sign Up</a>
+                            <a href="@Url.Action("KayitOl","User")"><i class="fa fa-lock"></i> Kayıt Ol</a>
                         </li>
                         <li>
-                            <a class="mj_logintoggle" onclick="show_my_div('my_profile_div_login' , 'id')"><i class="fa fa-user"></i> Login</a>
+                            <a href="@Url.Action("Login","User")" class="mj_logintoggle"><i class="fa fa-user"></i> Giriş</a>
                         </li>
                     </ul>
-                    <div class="mj_profilediv" id="my_profile_div_login">
+                    @*<div class="mj_profilediv" id="my_profile_div_login">
                         <form>
                             <div class="form-group">
                                 <input type="text" placeholder="Username or Email" id="ur_name" class="form-control">
@@ -163,7 +163,7 @@
                             </div>
                             <div class="mj_showmore"> <a href="#" class="mj_showmorebtn mj_greenbtn">login now!</a> </div>
                         </form>
-                    </div>
+                    </div>*@
                 </div>
             </div>
         </div>

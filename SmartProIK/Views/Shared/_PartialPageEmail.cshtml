@@ -1,0 +1,6 @@
+﻿@model SmartProIK.Models.db.Emailler
+
+<div class="form-group">
+    @Html.TextBoxFor(m => m.eposta, new { @class = "form-control", @placeholder = "Email" })
+    @Html.ValidationMessageFor(model => model.eposta, "", new { @class = "text-danger" })
+</div>

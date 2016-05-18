@@ -1,4 +1,4 @@
-﻿
+﻿@model SmartProIK.Models.db.Kullanicilar
 @{
     ViewBag.Title = "Login";
     Layout = "~/Views/Shared/_LayoutPageAna.cshtml";
@@ -17,13 +17,18 @@
         <div class="row">
             <div class="col-lg-6 col-md-6 col-lg-offset-3 col-md-offset-3 col-sm-12 col-xs-12">
                 <div class="mj_pricingtable mj_greentable mj_login_form_wrapper">
-                    <form>
+                    
+                        @using (Html.BeginForm("Login", "User"))
+                        {
+                            @Html.AntiForgeryToken()
                         <div class="mj_login_form">
                             <div class="form-group">
-                                <input type="text" placeholder="Kullanıcı Adı veya Email" id="uname" class="form-control">
+                                @*<input type="text" placeholder="Kullanıcı Adı veya Email" id="uname" class="form-control">*@
+                                @Html.TextBoxFor(m => m.kullaniciAdi, new { @class = "form-control", @id = "uname", @placeholder = "Kullanıcı Adı veya Email", @type = "text" })
                             </div>
                             <div class="form-group">
-                                <input type="password" placeholder="Şifre" id="upassword" class="form-control">
+                                @*<input type="password" placeholder="Şifre" id="upassword" class="form-control">*@
+                                @Html.TextBoxFor(m => m.sifre, new { @class = "form-control", @id = "upassword", @placeholder = "Şifre", @type = "password" })
                             </div>
                             <div class="row">
                                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 mj_toppadder20">
@@ -42,10 +47,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="mj_pricing_footer">
-                            <a href="#">giriş yap</a>
-                        </div>
-                    </form>
+                        @*<div class="mj_pricing_footer">*@
+                            <input type="submit" value="Giriş" class="mj_pricing_footer"/>
+                        @*</div>*@
+                        }
                 </div>
             </div>
         </div>

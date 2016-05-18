@@ -1,0 +1,273 @@
+﻿@model SmartProIK.Models.db.Kullanicilar
+
+@{
+    ViewBag.Title = "KayitOl";
+    Layout = "~/Views/Shared/_LayoutPageAna.cshtml";
+}
+
+<div class="mj_transprentbg" lang="tr">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <div class="row">
+                    <div class="mj_signup_section mj_yellow_bg">
+                        <div class="mj_mainheading mj_toppadder80 mj_bottompadder30">
+                            <h1>E<span>leman</span> A<span>rıyorum</span></h1>
+                        </div>
+                        <div class="mj_blog_btn">
+                            <a href="#" class="mj_mainbtn mj_btnblack" data-text="eleman" data-toggle="modal" data-target="#myModal"><span>eleman ara</span></a>
+                        </div>
+                        <div class="mj_signup_section_img">
+                            <img src="~/Contents/img/signup_bg1.png" class="img-responsive" alt="hire" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <div class="row">
+                    <div class="mj_signup_section mj_blue_bg">
+                        <div class="mj_mainheading mj_toppadder80 mj_bottompadder30">
+                            <h1>i<span>ş</span> A<span>rıyorum</span></h1>
+                        </div>
+                        <div class="mj_blog_btn">
+                            <a href="#" class="mj_mainbtn mj_btnblack" data-text="İş" data-toggle="modal" data-target="#myModal1"><span>İş ara</span></a>
+                        </div>
+                        <div class="mj_signup_section_img">
+                            <img src="~/Contents/img/signup_bg2.png" class="img-responsive" alt="job" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade mj_popupdesign" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel"> Ş<span>İrket</span> H<span>esabı</span></h4>
+
+            </div>
+            <div class="modal-body">
+                <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 col-lg-offset-1 col-md-offset-1">
+                    <div class="row">
+                        <div class="mj_pricingtable mj_yellowtable mj_createaccount_form_wrapper">
+                            <!-- Nav tabs -->
+                            @*<span style="text-align:center;margin-top:20px;" class="active">Company</span>*@
+
+                            @*<p class="mj_toppadder40">You can also sign up with <a href="#">Facebook</a>, <a href="#">Linkedin</a>, or <a href="#">Google</a>.</p>*@
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                <div role="tabpanel" class="tab-pane fade in active" id="company">
+                                    @using (Html.BeginForm("KayitOl", "User"))
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        <div class="mj_createaccount_form">
+                                            <div class="form-group">
+                                                @Html.TextBoxFor(m => m.ad, new { @class = "form-control", @placeholder = "İsim"})
+                                                @Html.ValidationMessageFor(model => model.ad, "", new { @class = "text-danger" })
+                                                
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.TextBoxFor(m => m.soyad, new { @class = "form-control", @placeholder = "Soyisim" })
+                                                @Html.ValidationMessageFor(model => model.soyad, "", new { @class = "text-danger" })
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.TextBoxFor(m => m.kullaniciAdi, new { @class = "form-control", @placeholder = "Kullanıcı Adı" })
+                                                @Html.ValidationMessageFor(model => model.kullaniciAdi, "", new { @class = "text-danger" })
+                                            </div>
+                                                @Html.Partial("_partialpageemail")
+                                            <div class="form-group">
+                                                @Html.PasswordFor(m => m.sifre, new { @class = "form-control", @placeholder = "Şifre" })
+                                                @Html.ValidationMessageFor(model => model.sifre, "", new { @class = "text-danger" })
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.TextBoxFor(m => m.sirketAdi, new { @class = "form-control", @placeholder = "Şirket Adı" })
+                                                @Html.ValidationMessageFor(model => model.sirketAdi, "", new { @class = "text-danger" })
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.TextBoxFor(m => m.telefon, new { @class = "form-control", @placeholder = "Telefon" })
+                                                @Html.ValidationMessageFor(model => model.telefon, "", new { @class = "text-danger" })
+                                            </div>
+
+                                        </div>
+
+                                        <input type="submit" class="mj_pricing_footer" value="Şimdi Kayıt Ol" />
+
+                                    }
+                                </div>
+                                @*<div role="tabpanel" class="tab-pane fade" id="individual">
+                                        <form>
+                                            <div class="mj_createaccount_form">
+                                                <div class="form-group">
+                                                    <input type="text" placeholder="Name" id="urname" class="form-control">
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="text" placeholder="Surname" id="ursurname" class="form-control">
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="email" placeholder="Email Address" id="uremail" class="form-control">
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="password" placeholder="Password" id="urpassword" class="form-control">
+                                                </div>
+                                                <div class="form-group mj_toppadder20">
+                                                    <div class="mj_checkbox">
+                                                        <input type="checkbox" value="1" id="check2" name="checkbox">
+                                                        <label for="check2"></label>
+                                                    </div>
+                                                    <span> I have read, understand and agree to the meshjobs Terms of Service, including the <a href="#">User Agreement</a> and <a href="#">Privacy Policy</a>.</span>
+                                                </div>
+                                            </div>
+                                            <div class="mj_pricing_footer">
+                                                <a href="#">Get Started Now!</a>
+                                            </div>
+                                        </form>
+                                    </div>*@
+                            </div>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <img src="~/Contents/img/close.png" alt="" />
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade mj_popupdesign" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel1"> Ö<span>ğrencİ </span>H<span>esabı</span></h4>
+
+            </div>
+            <div class="modal-body">
+                <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 col-lg-offset-1 col-md-offset-1">
+                    <div class="row">
+                        <div class="mj_pricingtable mj_bluetable mj_freelancer_form_wrapper">
+
+                            @using (Html.BeginForm("kayitOl", "User"))
+                            {
+                                @Html.AntiForgeryToken()
+                                <div class="mj_freelancer_form">
+                                    <div class="form-group">
+                                        @Html.TextBoxFor(m => m.ad, new { @class = "form-control", @placeholder = "İsim" })
+                                        @Html.ValidationMessageFor(model => model.ad, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.TextBoxFor(m => m.soyad, new { @class = "form-control", @placeholder = "Soyisim" }) 
+                                        @Html.ValidationMessageFor(model => model.soyad, "", new { @class = "text-danger" })                                       
+                                    </div>
+                                        @Html.Partial("_partialpageemail")
+                                    <div class="form-group">
+                                        @Html.TextBoxFor(m => m.kullaniciAdi, new { @class = "form-control", @placeholder = "Kullanıcı Adı", @id = "user_soyad" })
+                                        @Html.ValidationMessageFor(m=>m.kullaniciAdi, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.PasswordFor(m => m.sifre, new { @class = "form-control", @placeholder = "Şifre" })
+                                        @Html.ValidationMessageFor(model => model.sifre, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.TextBoxFor(m => m.sinifPortalNumarasi, new { @class = "form-control", @placeholder = "Portal Numarası" })
+                                        @Html.ValidationMessageFor(model => model.sinifPortalNumarasi, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.TextBoxFor(m => m.telefon, new { @class = "form-control", @placeholder = "Telefon" })
+                                        @Html.ValidationMessageFor(model => model.telefon, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <input type="submit" class="mj_pricing_footer" value="Şimdi Kayıt Ol" />
+                            }
+
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <img src="~/Contents/img/close.png" alt="">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<div class="modal fade mj_popupdesign" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel2"> l<span>ogin to my </span> A<span>ccount</span></h4>
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </p>
+                </div>
+                <div class="modal-body">
+                    <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 col-lg-offset-1 col-md-offset-1">
+                        <div class="row">
+                            <div class="mj_pricingtable mj_greentable mj_login_form_wrapper">
+                                <form>
+                                    <div class="mj_login_form">
+                                        <div class="form-group">
+                                            <input type="text" placeholder="Username or Email" id="usr_name" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" placeholder="Your Password" id="usr_password" class="form-control">
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 mj_toppadder20">
+                                                <div class="form-group  pull-left">
+                                                    <div class="mj_checkbox">
+                                                        <input type="checkbox" value="1" id="check4" name="checkbox">
+                                                        <label for="check4"></label>
+                                                    </div>
+                                                    <span> remember me</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 mj_toppadder20">
+                                                <div class="form-group pull-right">
+                                                    <span><a href="#">forget password ?</a></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mj_pricing_footer">
+                                        <a href="#">login Now</a>
+                                    </div>
+                                </form>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <img src="~/Contents/img/close.png" alt="">
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>*@
+<!--Model End-->

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="bb0e6ea60c5847cdbc7a57a36cb335b9" Name="Diagram1">
+        <EntityTypeShape EntityType="IKDBModel.Adresler" Width="1.5" PointX="3" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="IKDBModel.Diller" Width="1.5" PointX="3" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="IKDBModel.EgitimBilgileri" Width="1.5" PointX="3" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IKDBModel.Emailler" Width="1.5" PointX="3" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="IKDBModel.Kullanicilar" Width="1.5" PointX="0.75" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="IKDBModel.Onyazilar" Width="1.5" PointX="3" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="IKDBModel.Sertifikalar" Width="1.5" PointX="3" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IKDBModel.Tecrubeler" Width="1.5" PointX="3" PointY="19.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="IKDBModel.Yetenekler" Width="1.5" PointX="3" PointY="22.375" IsExpanded="true" />
+        <AssociationConnector Association="IKDBModel.FK_Adresler_Kullanicilar" ManuallyRouted="false" />
+        <AssociationConnector Association="IKDBModel.FK_Diller_Kullanicilar" ManuallyRouted="false" />
+        <AssociationConnector Association="IKDBModel.FK_EgitimBilgileri_Kullanicilar" ManuallyRouted="false" />
+        <AssociationConnector Association="IKDBModel.FK_Emailler_Kullanicilar" ManuallyRouted="false" />
+        <AssociationConnector Association="IKDBModel.FK_Onyazilar_Kullanicilar" ManuallyRouted="false" />
+        <AssociationConnector Association="IKDBModel.FK_Sertifikalar_Kullanicilar" ManuallyRouted="false" />
+        <AssociationConnector Association="IKDBModel.FK_Tecrubeler_Kullanicilar" ManuallyRouted="false" />
+        <AssociationConnector Association="IKDBModel.FK_Yetenekler_Kullanicilar" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
