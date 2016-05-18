@@ -386,6 +386,10 @@
     <Content Include="Views\Shared\_PartialPageEmail.cshtml" />
     <Content Include="Views\User\Test.cshtml" />
     <Content Include="scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Shared\_PartialPageOgrenciHeader.cshtml" />
+    <Content Include="Views\Shared\_LayoutPageOgrenci.cshtml" />
+    <Content Include="Views\Ogrenci\Profil.cshtml" />
+    <Content Include="Views\Ogrenci\ProfilDuzenleme.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -407,7 +411,6 @@
     <Folder Include="Contents\js\plugins\rsslider\" />
     <Folder Include="Views\Admin\" />
     <Folder Include="Views\Kayit\" />
-    <Folder Include="Views\Ogrenci\" />
     <Folder Include="Views\Patron\" />
   </ItemGroup>
   <ItemGroup>
