@@ -64,7 +64,7 @@ namespace SmartProIK.Controllers
             }
             if (ent.Kullanicilar.Any(k=>k.kullaniciAdi==usr.kullaniciAdi))
             {
-                Response.Write("<script>alert('asdasdasdasdasdasda')</script>");
+                Response.Write("<script>alert('Başka bir kullanıcı adı seçiniz')</script>");
             }
             else
             {
@@ -78,10 +78,7 @@ namespace SmartProIK.Controllers
             
                 return View();
         }
-        public ActionResult Test()
-        {
-            return View();
-        }
+        
         
     }
 }

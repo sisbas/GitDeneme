@@ -4,183 +4,361 @@
     Layout = "~/Views/Shared/_LayoutPageOgrenci.cshtml";
 }
 
-<div class="mj_lightgraytbg mj_toppadder80 mj_bottompadder80">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 col-lg-offset-2 col-md-offset-2 col-sm-offset-0 col-xs-offset-0">
-                <div class="mj_mainheading mj_toppadder50 mj_bottompadder50">
-                    <h1>P<span>ost</span> <span>a</span> R<span>esume</span></h1>
-                    <p class="mj_bottompadder20">
-                        You are currently signed in as <strong class="mj_black_text">johndoe</strong>
-                    </p>
-                    <a href="#" class="mj_mainbtn mj_btnblue" data-text="Sign Out"><span>sign out</span></a>
+<style>
+    div .container {
+        margin-top: 20px;
+    }
+
+    div input {
+        text-transform: capitalize;
+    }
+</style>
+
+<div class="container">
+    <div class="row">
+        <section>
+            <div class="col-lg-8 col-lg-offset-2">
+                <div class="page-header">
+                    <h4>Bilgilerinizi Giriniz</h4>
                 </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div class="mj_postdiv mj_shadow_blue mj_postpage mj_toppadder50 mj_bottompadder50">
-                    <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 col-lg-offset-1 col-md-offset-1">
-                        <form>
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#kisisel-tab" data-toggle="tab">Kişisel Bilgiler <i class="fa"></i></a></li>
+                    <li><a href="#iletisim-tab" data-toggle="tab">İletişim <i class="fa"></i></a></li>
+                    <li><a href="#egitim-tab" data-toggle="tab">Eğitim <i class="fa"></i></a></li>
+                    <li><a href="#tecrube-tab" data-toggle="tab">Tecrübe <i class="fa"></i></a></li>
+                    <li><a href="#yetenek-tab" data-toggle="tab">Yetenek <i class="fa"></i></a></li>
+                    <li><a href="#sertifika-tab" data-toggle="tab">Sertifikalar <i class="fa"></i></a></li>
+                    <li><a href="#diger-tab" data-toggle="tab">Diğer Bilgiler <i class="fa"></i></a></li>
+                </ul>
+                <form id="accountForm" method="post" class="form-horizontal" action="target.php" style="margin-top: 20px;">
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="kisisel-tab">
                             <div class="form-group">
-                                <label>Your Name</label>
-                                <input type="text" class="form-control" placeholder="John Doe">
-                            </div>
-                            <div class="form-group">
-                                <label>Job Title</label>
-                                <input type="text" class="form-control" placeholder="Job Title">
-                            </div>
-                            <div class="form-group">
-                                <label>Your Email Address</label>
-                                <input type="text" class="form-control" placeholder="Email Id">
-                            </div>
-                            <div class="form-group">
-                                <label>Professional Title</label>
-                                <input type="text" class="form-control" placeholder="e.g. “Web Developer”">
-                            </div>
-                            <div class="form-group">
-                                <label>Location</label>
-                                <input type="text" class="form-control" placeholder="e.g. “London, UK”, “New York”, “Houston, TX”">
-                            </div>
-                            <div class="form-group">
-                                <label>
-                                    Photo <span>(optionnal)</span>
-                                </label>
-                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                    <div class="row">
-                                        <a href="#" class="mj_mainbtn mj_btngray" data-text="Choose File"><span>choose file</span></a>
-                                    </div>
+                                <label class="col-lg-3 control-label">Ad</label>
+                                <div class="col-lg-5">
+                                    <input type="text" class="form-control" name="ad" />
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label>
-                                    Video <span>(optionnal) </span>
-                                </label>
-                                <input type="text" class="form-control" placeholder="A link to a video about yourself">
-                            </div>
-                            <div class="form-group">
-                                <label>Resume Category</label>
-                                <select name="timepass" class="custom-select">
-                                    <option>Choose a Category</option>
-                                    <option>Design</option>
-                                    <option>web</option>
-                                    <option>development</option>
-                                </select>
-                                <ul class="mj_selected_content">
-                                    <li>
-                                        <a href="#"><img src="~/Contents/img/cross_white.png" alt=""> Design</a>                                        
-                                    </li>
-                                    <li>
-                                        <a href="#"><img src="~/Contents/img/cross_white.png" alt=""> web</a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><img src="~/Contents/img/cross_white.png" alt=""> development</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="form-group">
-                                <label>Resume Content</label>
-                                <textarea id="editor1" class="form-control">
-                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam <strong>nonummy nibh euismod</strong> tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim <a href="#">veniam</a>, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip.</p>
-                                </textarea>
-                            </div>
-                            <div class="form-group">
-                                <label>
-                                    Skills <span>(optionnal)</span>
-                                </label>
-                                <input type="text" class="form-control" placeholder="Comma separate a list of relevant skills">
-                            </div>
-                            <div class="form-group">
-                                <label>
-                                    URLs<span>(optionnal)</span>
-                                </label>
-                                <div id="i1" class="mj_addurl">
-                                    + Add URL
-                                    <span>Optionally provide links to any of your websites or social network profiles.</span>
+                                <label class="col-lg-3 control-label">Soyad</label>
+                                <div class="col-lg-5">
+                                    <input type="text" class="form-control" name="soyAd" />
                                 </div>
-                                <div class="mj_addurldiv" id="divi1">
-                                    <div class="row">
-                                        <div class="col-lg-6">
-                                            <div class="form-group">
-                                                <input type="text" class="form-control" placeholder="Alink to a video about your company">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <input type="button" value="Add New" class="mj_add" />
+                            </div>
+                            <div class="form-group">
+                                <label class="col-lg-3 control-label">Şifre</label>
+                                <div class="col-lg-5">
+                                    <input type="text" class="form-control" name="sifre" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-lg-3 control-label">Şifre Onay</label>
+                                <div class="col-lg-5">
+                                    <input type="text" class="form-control" name="sifreOnay" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-lg-3 control-label">Profil Resmi</label>
+                                <div class="col-lg-5">
+                                    <input type="file" class="form-control" name="proResmi" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-lg-3 control-label">Doğum Tarihi</label>
+                                <div class="col-lg-5">
+                                    <input type="date" class="form-control" name="dogumTarihi" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="iletisim-tab">
+                            <div class="form-group">
+                                <label class="col-lg-3 control-label">Telefon</label>
+                                <div class="col-lg-5">
+                                    <input type="text" class="form-control" name="tel" />
+                                    <input type="button" style="margin-top:5px;" class="btn btn-default" id="yeniAdres" value="Adres Ekle" />
+                                </div>
+                            </div>
+
+                            @*<div id="gizliAdres" style="display:none">
+                                    <div class="form-group">
+                                        <label class="col-lg-3 control-label">Ülke </label>
+                                        <div class="col-lg-5">
+                                            <select size="1">
+                                                <option>
+                                                    Türkiye
+                                                </option>
+                                            </select>
                                         </div>
                                     </div>
+                                </div>*@
+                        </div>
+                        <script src="~/Contents/js/myScript.js"></script>
+                        <div class="tab-pane" id="egitim-tab">
+                            <div class="form-group">
+                                <label class="col-lg-3 control-label">Address</label>
+                                <div class="col-lg-5">
+                                    <input type="text" class="form-control" name="address" />
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label>
-                                    Education<span>(optionnal)</span>
-                                </label>
-                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                    <div class="row">
-                                        <div class="mj_education">
-                                            <input type="text" class="form-control" placeholder="School Name">
-                                            <input type="text" class="form-control" placeholder="Qualification(s)">
-                                            <input type="text" class="form-control" placeholder="Start / End Date">
-                                            <textarea class="form-control" rows="5" placeholder="Notes"></textarea>
-                                            <a href="#" class="mj_removefile"><i class="fa fa-times"></i> remove</a>
-                                        </div>
-                                    </div>
+                                <label class="col-lg-3 control-label">City</label>
+                                <div class="col-lg-5">
+                                    <input type="text" class="form-control" name="city" />
                                 </div>
                             </div>
                             <div class="form-group">
-                                <div id="i2" class="mj_addurl">
-                                    + Add URL
-                                    <span>Optionally provide links to any of your websites or social network profiles.</span>
-                                </div>
-                                <div class="mj_addurldiv" id="divi2">
-                                    <div class="row">
-                                        <div class="col-lg-6">
-                                            <div class="form-group">
-                                                <input type="text" class="form-control" placeholder="Alink to a video about your company">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <input type="button" value="Add New" class="mj_add" />
-                                        </div>
-                                    </div>
+                                <label class="col-lg-3 control-label">Country</label>
+                                <div class="col-lg-5">
+                                    <select class="form-control" name="country">
+                                        <option value="">Select a country</option>
+                                        <option value="FR">France</option>
+                                        <option value="DE">Germany</option>
+                                        <option value="IT">Italy</option>
+                                        <option value="JP">Japan</option>
+                                        <option value="RU">Russian</option>
+                                        <option value="US">United State</option>
+                                        <option value="GB">United Kingdom</option>
+                                        <option value="other">Other</option>
+                                    </select>
                                 </div>
                             </div>
+                        </div>
+                        <div class="tab-pane" id="tecrube-tab">
                             <div class="form-group">
-                                <label>
-                                    Experience<span>(optionnal)</span>
-                                </label>
-                                <div id="i3" class="mj_addurl">
-                                    + Add URL
-                                    <span>Optionally provide links to any of your websites or social network profiles.</span>
-                                </div>
-                                <div class="mj_addurldiv" id="divi3">
-                                    <div class="row">
-                                        <div class="col-lg-6">
-                                            <div class="form-group">
-                                                <input type="text" class="form-control" placeholder="Alink to a video about your company">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <input type="button" value="Add New" class="mj_add" />
-                                        </div>
-                                    </div>
+                                <label class="col-lg-3 control-label">Address</label>
+                                <div class="col-lg-5">
+                                    <input type="text" class="form-control" name="address" />
                                 </div>
                             </div>
+                        </div>
+                        <div class="tab-pane" id="yetenek-tab">
                             <div class="form-group">
-                                <label>
-                                    twitter <span>(optionnal)</span>
-                                </label>
-                                <input type="text" class="form-control" placeholder="username">
+                                <label class="col-lg-3 control-label">Adres</label>
+                                <div class="col-lg-5">
+                                    <input type="text" class="form-control" name="address" />
+                                </div>
                             </div>
-                           
-                        </form>
+                        </div>
+                        <div class="tab-pane" id="sertifika-tab">
+                            <div class="form-group">
+                                <label class="col-lg-3 control-label">Adres</label>
+                                <div class="col-lg-5">
+                                    <input type="text" class="form-control" name="address" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="diger-tab">
+                            <div class="form-group">
+                                <label class="col-lg-3 control-label">Adres</label>
+                                <div class="col-lg-5">
+                                    <input type="text" class="form-control" name="address" />
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
-                </div>
-                <div class="mj_showmore">
-                    <a href="#" class="mj_showmorebtn mj_bigbtn mj_bluebtn">Preview <i class="fa fa-angle-right"></i></a>
-                </div>
+                    @*<div class="form-group">
+                            <div class="col-lg-5 col-lg-offset-3">
+                                <button type="submit" class="btn btn-primary">Validate</button>
+                            </div>
+                        </div>*@
+                </form>
             </div>
-        </div>
+        </section>
     </div>
 </div>
+
+@*<script>
+    //$().ready(function () {
+    //    $('#yeniAdres').click(function () {
+    //        $('#gizliAdres').show(1000);
+    //    });
+    //});
+</script>*@
+
+
+
+
+
+
+
+@*<div class="mj_lightgraytbg mj_toppadder80 mj_bottompadder80">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 col-lg-offset-2 col-md-offset-2 col-sm-offset-0 col-xs-offset-0">
+                    <div class="mj_mainheading mj_toppadder50 mj_bottompadder50">
+                        <h1>P<span>ost</span> <span>a</span> R<span>esume</span></h1>
+                        <p class="mj_bottompadder20">
+                            You are currently signed in as <strong class="mj_black_text">johndoe</strong>
+                        </p>
+                        <a href="#" class="mj_mainbtn mj_btnblue" data-text="Sign Out"><span>sign out</span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="mj_postdiv mj_shadow_blue mj_postpage mj_toppadder50 mj_bottompadder50">
+                        <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 col-lg-offset-1 col-md-offset-1">
+                            <form>
+                                <div class="form-group">
+                                    <label>Your Name</label>
+                                    <input type="text" class="form-control" placeholder="John Doe">
+                                </div>
+                                <div class="form-group">
+                                    <label>Job Title</label>
+                                    <input type="text" class="form-control" placeholder="Job Title">
+                                </div>
+                                <div class="form-group">
+                                    <label>Your Email Address</label>
+                                    <input type="text" class="form-control" placeholder="Email Id">
+                                </div>
+                                <div class="form-group">
+                                    <label>Professional Title</label>
+                                    <input type="text" class="form-control" placeholder="e.g. “Web Developer”">
+                                </div>
+                                <div class="form-group">
+                                    <label>Location</label>
+                                    <input type="text" class="form-control" placeholder="e.g. “London, UK”, “New York”, “Houston, TX”">
+                                </div>
+                                <div class="form-group">
+                                    <label>
+                                        Photo <span>(optionnal)</span>
+                                    </label>
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <div class="row">
+                                            <a href="#" class="mj_mainbtn mj_btngray" data-text="Choose File"><span>choose file</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>
+                                        Video <span>(optionnal) </span>
+                                    </label>
+                                    <input type="text" class="form-control" placeholder="A link to a video about yourself">
+                                </div>
+                                <div class="form-group">
+                                    <label>Resume Category</label>
+                                    <select name="timepass" class="custom-select">
+                                        <option>Choose a Category</option>
+                                        <option>Design</option>
+                                        <option>web</option>
+                                        <option>development</option>
+                                    </select>
+                                    <ul class="mj_selected_content">
+                                        <li>
+                                            <a href="#"><img src="~/Contents/img/cross_white.png" alt=""> Design</a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><img src="~/Contents/img/cross_white.png" alt=""> web</a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><img src="~/Contents/img/cross_white.png" alt=""> development</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="form-group">
+                                    <label>Resume Content</label>
+                                    <textarea id="editor1" class="form-control">
+
+                                    </textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>
+                                        Skills <span>(optionnal)</span>
+                                    </label>
+                                    <input type="text" class="form-control" placeholder="Comma separate a list of relevant skills">
+                                </div>
+                                <div class="form-group">
+                                    <label>
+                                        URLs<span>(optionnal)</span>
+                                    </label>
+                                    <div id="i1" class="mj_addurl">
+                                        + Add URL
+                                        <span>Optionally provide links to any of your websites or social network profiles.</span>
+                                    </div>
+                                    <div class="mj_addurldiv" id="divi1">
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" placeholder="Alink to a video about your company">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <input type="button" value="Add New" class="mj_add" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>
+                                        Education<span>(optionnal)</span>
+                                    </label>
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <div class="row">
+                                            <div class="mj_education">
+                                                <input type="text" class="form-control" placeholder="School Name">
+                                                <input type="text" class="form-control" placeholder="Qualification(s)">
+                                                <input type="text" class="form-control" placeholder="Start / End Date">
+                                                <textarea class="form-control" rows="5" placeholder="Notes"></textarea>
+                                                <a href="#" class="mj_removefile"><i class="fa fa-times"></i> remove</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div id="i2" class="mj_addurl">
+                                        + Add URL
+                                        <span>Optionally provide links to any of your websites or social network profiles.</span>
+                                    </div>
+                                    <div class="mj_addurldiv" id="divi2">
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" placeholder="Alink to a video about your company">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <input type="button" value="Add New" class="mj_add" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>
+                                        Experience<span>(optionnal)</span>
+                                    </label>
+                                    <div id="i3" class="mj_addurl">
+                                        + Add URL
+                                        <span>Optionally provide links to any of your websites or social network profiles.</span>
+                                    </div>
+                                    <div class="mj_addurldiv" id="divi3">
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" placeholder="Alink to a video about your company">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <input type="button" value="Add New" class="mj_add" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>
+                                        twitter <span>(optionnal)</span>
+                                    </label>
+                                    <input type="text" class="form-control" placeholder="username">
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                    <div class="mj_showmore">
+                        <a href="#" class="mj_showmorebtn mj_bigbtn mj_bluebtn">Preview <i class="fa fa-angle-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>*@
 

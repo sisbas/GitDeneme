@@ -11,7 +11,7 @@ namespace SmartProIK.Models.db
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
+    
     public partial class Kullanicilar
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -28,25 +28,18 @@ namespace SmartProIK.Models.db
         }
     
         public int id { get; set; }
-        [Required(ErrorMessage ="Bu alan gerekli")]
         public string ad { get; set; }
-        [Required(ErrorMessage = "Bu alan gerekli")]
         public string soyad { get; set; }
-        [Required(ErrorMessage = "Bu alan gerekli")]  
         public string kullaniciAdi { get; set; }
-        [MinLength(6,ErrorMessage ="En az 6 karakter gerekli")]        
-        [Required(ErrorMessage = "Bu alan gerekli")]
-        [RegularExpression("^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{4,8}$",ErrorMessage ="En az bir büyük ve küçük harf ve bir de rakam içermelidir")]
         public string sifre { get; set; }
-        [Required(ErrorMessage = "Bu alan gerekli")]
         public string sirketAdi { get; set; }
         public int yektiid { get; set; }
         public Nullable<System.DateTime> kayittarihi { get; set; }
-        [Required(ErrorMessage = "Bu alan gerekli")]
         public string telefon { get; set; }
-        public bool onay { get; set; }        
+        public bool onay { get; set; }
         public string sinifPortalNumarasi { get; set; }
         public string fotoYol { get; set; }
+        public Nullable<System.DateTime> dogumTarihi { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Adresler> Adresler { get; set; }

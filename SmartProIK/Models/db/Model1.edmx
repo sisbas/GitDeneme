@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="IKDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="IKDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Adresler">
           <Key>
             <PropertyRef Name="id" />
@@ -64,6 +64,7 @@
           <Property Name="onay" Type="bit" Nullable="false" />
           <Property Name="sinifPortalNumarasi" Type="nvarchar" MaxLength="20" />
           <Property Name="fotoYol" Type="nvarchar(max)" />
+          <Property Name="dogumTarihi" Type="date" />
         </EntityType>
         <EntityType Name="Onyazilar">
           <Key>
@@ -247,8 +248,7 @@
             <End Role="Yetenekler" EntitySet="Yetenekler" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="IKDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -319,6 +319,7 @@
           <NavigationProperty Name="Sertifikalar" Relationship="Self.FK_Sertifikalar_Kullanicilar" FromRole="Kullanicilar" ToRole="Sertifikalar" />
           <NavigationProperty Name="Tecrubeler" Relationship="Self.FK_Tecrubeler_Kullanicilar" FromRole="Kullanicilar" ToRole="Tecrubeler" />
           <NavigationProperty Name="Yetenekler" Relationship="Self.FK_Yetenekler_Kullanicilar" FromRole="Kullanicilar" ToRole="Yetenekler" />
+          <Property Name="dogumTarihi" Type="DateTime" Precision="0" />
         </EntityType>
         <EntityType Name="Onyazilar">
           <Key>
@@ -490,6 +491,7 @@
           <EntitySetMapping Name="Kullanicilar">
             <EntityTypeMapping TypeName="IKDBModel.Kullanicilar">
               <MappingFragment StoreEntitySet="Kullanicilar">
+                <ScalarProperty Name="dogumTarihi" ColumnName="dogumTarihi" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="ad" ColumnName="ad" />
                 <ScalarProperty Name="soyad" ColumnName="soyad" />

@@ -259,6 +259,7 @@
     <Content Include="Contents\js\jquery-1.11.3.min.js" />
     <Content Include="Contents\js\jquery.mixitup.js" />
     <Content Include="Contents\js\modernizr.custom.js" />
+    <Content Include="Contents\js\myScript.js" />
     <Content Include="Contents\js\plugins\assets\coloredbg.html" />
     <Content Include="Contents\js\plugins\assets\gridtile.html" />
     <Content Include="Contents\js\plugins\assets\gridtile_3x3.html" />
@@ -278,6 +279,7 @@
     </Content>
     <Content Include="scripts\ai.0.15.0-build58334.js" />
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
+    <None Include="Properties\PublishProfiles\smartproiksisbas.pubxml" />
     <None Include="scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="scripts\jquery-1.10.2.js" />
     <Content Include="scripts\jquery-1.10.2.min.js" />
@@ -384,7 +386,6 @@
     </Content>
     <Content Include="Views\User\KayitOl.cshtml" />
     <Content Include="Views\Shared\_PartialPageEmail.cshtml" />
-    <Content Include="Views\User\Test.cshtml" />
     <Content Include="scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Shared\_PartialPageOgrenciHeader.cshtml" />
     <Content Include="Views\Shared\_LayoutPageOgrenci.cshtml" />
