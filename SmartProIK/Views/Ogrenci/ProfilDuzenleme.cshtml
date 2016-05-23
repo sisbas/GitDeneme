@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "ProfilDuzenleme";
     Layout = "~/Views/Shared/_LayoutPageOgrenci.cshtml";
 }
@@ -80,18 +79,38 @@
                             </div>
 
                             @*<div id="gizliAdres" style="display:none">
-                                    <div class="form-group">
-                                        <label class="col-lg-3 control-label">Ülke </label>
-                                        <div class="col-lg-5">
-                                            <select size="1">
-                                                <option>
-                                                    Türkiye
-                                                </option>
-                                            </select>
-                                        </div>
-                                    </div>
+                                <div class="form-group">
+                                <label class="col-lg-3 control-label">Ülke </label>
+                                <div class="col-lg-5">
+                                <select size="1">
+                                <option>
+                                Türkiye
+                                </option>
+                                </select>
+                                </div>
+                                </div>
                                 </div>*@
                         </div>
+                        @*<script>
+                            function illeriDoldur() {
+                                $.ajax({
+                                    type: "POST",
+                                    url: '@Url.Action("Iller","Ogrenci")',
+                                    dataType: "json",
+                                    contentType: "application/json;charset=utf-8",
+                                    data: null,
+                                    success: function (gelenIller) {
+                                        console.log(gelenIller);
+                                        $('#il1').append('<option>'+JSON.stringify(gelenIller.ad) +'</option>')
+                                    },
+                                    error: function (e1, e2, e3) {
+                                        console.log(e3);
+                                    }
+                                })
+                            }
+
+                        </script>*@
+
                         <script src="~/Contents/js/myScript.js"></script>
                         <div class="tab-pane" id="egitim-tab">
                             <div class="form-group">
@@ -158,9 +177,9 @@
 
                     </div>
                     @*<div class="form-group">
-                            <div class="col-lg-5 col-lg-offset-3">
-                                <button type="submit" class="btn btn-primary">Validate</button>
-                            </div>
+                        <div class="col-lg-5 col-lg-offset-3">
+                        <button type="submit" class="btn btn-primary">Validate</button>
+                        </div>
                         </div>*@
                 </form>
             </div>
@@ -168,13 +187,17 @@
     </div>
 </div>
 
+
+
+
+
 @*<script>
-    //$().ready(function () {
-    //    $('#yeniAdres').click(function () {
-    //        $('#gizliAdres').show(1000);
-    //    });
-    //});
-</script>*@
+        //$().ready(function () {
+        //    $('#yeniAdres').click(function () {
+        //        $('#gizliAdres').show(1000);
+        //    });
+        //});
+    </script>*@
 
 
 

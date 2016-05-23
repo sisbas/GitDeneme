@@ -72,4 +72,48 @@ document.getElementById('yeniAdres').addEventListener('click', function () {
     selectDiv3.appendChild(txbDiger);
     formGroupDiv3.appendChild(selectDiv3);
 
+    function illeriDoldur() {
+        $.ajax({
+            type: "POST",
+            url: '../../Ogrenci/Iller',
+            dataType: "json",
+            contentType: "application/json;charset=utf-8",
+            data: null,
+            success: function (gelenIller) {
+                console.log(gelenIller);
+                for (var i = 0; i < gelenIller.length; i++) {
+                    $('#il1').append('<option id="'+gelenIller[i].il_id+'">' + gelenIller[i].il_ad + '</option>')
+
+                };
+            },
+            error: function (e1, e2, e3) {
+                console.log(e3);
+            }
+        })
+    }
+    function ilceleriDoldur() {
+        $.ajax({
+            type: "POST",
+            url: '../../Ogrenci/Ilceler',
+            dataType: "json",
+            contentType: "application/json;charset=utf-8",
+            data: null,
+            success: function (gelenIlceler) {
+                console.log(gelenIlceler);
+                 
+                for (var i = 0; i < gelenIlceler.length; i++) {
+                    $('#ilce1').append('<option id="'+gelenIlceler[i].ilce_id+'">' + gelenIlceler[i].ilce_ad + '</option>')
+                };
+            },
+            error: function (e1, e2, e3) {
+                console.log(e3);
+            }
+        })
+    }
+    
+
+    illeriDoldur();
+    ilceleriDoldur();
+
 });
+
