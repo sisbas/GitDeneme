@@ -82,7 +82,8 @@ document.getElementById('yeniAdres').addEventListener('click', function () {
             success: function (gelenIller) {
                 console.log(gelenIller);
                 for (var i = 0; i < gelenIller.length; i++) {
-                    $('#il1').append('<option id="'+gelenIller[i].il_id+'">' + gelenIller[i].il_ad + '</option>')
+                    //$('#il1').append('<option id="'+gelenIller[i].il_id+'">' + gelenIller[i].il_ad + '</option>')
+                    $('select[id^="il"]').not('select[id^="ilce"]').last("select").append('<option id="optIl1' + gelenIller[i].il_id + '">' + gelenIller[i].il_ad + '</option>');
 
                 };
             },
@@ -91,29 +92,48 @@ document.getElementById('yeniAdres').addEventListener('click', function () {
             }
         })
     }
-    function ilceleriDoldur() {
+    $('select[id^="il"]').not('select[id^="ilce"]').last('select').change(function () {
+        var sayi = $(this).attr('id').substr(2);
+        var gonderilenIlId = $(this).find(':selected').attr('id').substr(6);
+        console.log(gonderilenIlId);
+        var gidenVeri = {};
+        gidenVeri.gelenID = gonderilenIlId;
         $.ajax({
             type: "POST",
             url: '../../Ogrenci/Ilceler',
             dataType: "json",
             contentType: "application/json;charset=utf-8",
-            data: null,
-            success: function (gelenIlceler) {
-                console.log(gelenIlceler);
-                 
-                for (var i = 0; i < gelenIlceler.length; i++) {
-                    $('#ilce1').append('<option id="'+gelenIlceler[i].ilce_id+'">' + gelenIlceler[i].ilce_ad + '</option>')
+            data: JSON.stringify(gidenVeri),
+            success: function (gelenVeri) {
+                $('select[id^="ilce"][id$="' + sayi + '"] option').each(function () { $(this).remove() })
+                for (var i = 0; i < gelenVeri.length; i++) {
+                    $('select[id^="ilce"][id$="' + sayi + '"]').append("<option>" + gelenVeri[i] + "</option>");
                 };
             },
             error: function (e1, e2, e3) {
                 console.log(e3);
             }
         })
-    }
-    
+    });
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //$('select[id^=il]').not('select[id^="ilce"]').last('select').change(function () {
+    //    var sayi = $(this).attr('id').substr(2);
+    //    $('select[id^="ilce"][id$="' + sayi + '"]').append("<option>Test</option>");
+    //    var gonderilenIlId = $(this).find(':selected').attr('id');
+    //    console.log(gonderilenIlId);
+
+    //});
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    //$('select[id^=il]').not('select[id^="ilce"]').last('select').change(function () {
+    //    var sayi = alert($(this).attr('id'));
+    //    $('select[id^="ilce"][id$="' + sayi + '"]').append("<option>kalp</option>");
+    //    var gonderilenIlId = $(this).find(':selected').attr('id');
+    //    console.log(sayi);
+    //});
 
     illeriDoldur();
-    ilceleriDoldur();
 
 });
 

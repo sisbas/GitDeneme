@@ -35,9 +35,9 @@ namespace SmartProIK.Controllers
 
         [HttpPost]
         public JsonResult Ilceler(string gelenID)
-        {
-            var intId = Convert.ToInt32(gelenID);            
-            return Json(entIller.ilceler.Where(i => i.iller.id == 2).Select(i => i.ilce));
+        {  
+            var intId = Convert.ToInt32(gelenID);
+            return Json(entIller.ilceler.Where(i => i.iller.id == intId).Select(i =>i.ilce));
         }
     }
 }
